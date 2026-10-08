@@ -1,0 +1,1392 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background: #ffffff;
+    color: #07345a;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --blue: #07345a;
+    --blue-light: #0c4778;
+
+    --orange: #ff8a1f;
+    --orange-dark: #e8750d;
+
+    --text: #07345a;
+    --muted: #63778a;
+
+    --bg-soft: #f5f8fb;
+
+    --border: rgba(7, 52, 90, 0.09);
+
+    --shadow: 0 20px 60px rgba(7, 52, 90, 0.10);
+
+    --radius: 28px;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid rgba(7, 52, 90, 0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: box-shadow 0.25s ease;
+}
+
+.nav {
+    min-height: clamp(105px, 8vw, 125px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+
+    width: clamp(110px, 9vw, 150px);
+
+    height: auto;
+
+    max-height: none;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 32px;
+
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--blue);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--orange);
+
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   HEADER BUTTON
+========================================= */
+
+.header-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 23px;
+
+    border-radius: 14px;
+
+    background: var(--orange);
+    color: white;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    box-shadow: 0 10px 25px rgba(255, 138, 31, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.header-button:hover {
+    transform: translateY(-2px);
+
+    background: var(--orange-dark);
+
+    box-shadow: 0 14px 30px rgba(255, 138, 31, 0.30);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    position: relative;
+
+    padding: clamp(190px, 16vw, 235px) 0 95px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(380px, 0.95fr);
+
+    align-items: center;
+
+    gap: 75px;
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    margin-bottom: 24px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 138, 31, 0.10);
+
+    color: var(--orange);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--orange);
+}
+
+.hero h1 {
+    max-width: 720px;
+
+    color: var(--blue);
+
+    font-size: clamp(43px, 5vw, 72px);
+
+    line-height: 1.06;
+
+    letter-spacing: -0.045em;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 36px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 57px;
+
+    padding: 0 25px;
+
+    border-radius: 16px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.primary-button {
+    background: var(--orange);
+    color: white;
+
+    box-shadow:
+        0 14px 30px rgba(255, 138, 31, 0.22);
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+
+    background: var(--orange-dark);
+
+    box-shadow:
+        0 18px 35px rgba(255, 138, 31, 0.30);
+}
+
+.secondary-button {
+    background: #f3f7fa;
+
+    color: var(--blue);
+
+    border: 1px solid rgba(7, 52, 90, 0.08);
+}
+
+.secondary-button:hover {
+    transform: translateY(-3px);
+
+    background: #edf3f7;
+}
+
+
+/* =========================================
+   HERO VISUAL
+========================================= */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 480px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.academic-card {
+    position: relative;
+
+    width: min(100%, 500px);
+
+    min-height: 420px;
+
+    padding: 50px 45px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fbfd 0%,
+            #ffffff 100%
+        );
+
+    border: 1px solid rgba(7, 52, 90, 0.08);
+
+    border-radius: 38px;
+
+    box-shadow:
+        0 35px 80px rgba(7, 52, 90, 0.12);
+
+    overflow: hidden;
+}
+
+.academic-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -110px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 138, 31, 0.08);
+}
+
+.academic-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    bottom: -120px;
+    left: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(7, 52, 90, 0.05);
+}
+
+.academic-icon {
+    position: relative;
+
+    z-index: 3;
+
+    width: 125px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 32px;
+
+    border-radius: 50%;
+
+    background: var(--blue);
+
+    box-shadow:
+        0 20px 40px rgba(7, 52, 90, 0.20);
+}
+
+.academic-icon svg {
+    width: 62px;
+    height: 62px;
+
+    fill: white;
+}
+
+.academic-title {
+    position: relative;
+
+    z-index: 10;
+
+    color: var(--blue);
+
+    font-size: clamp(27px, 3vw, 37px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -0.035em;
+}
+
+.academic-subtitle {
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 14px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.dot {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--orange);
+}
+
+.dot-1 {
+    top: 55px;
+    right: 55px;
+}
+
+.dot-2 {
+    bottom: 60px;
+    right: 85px;
+
+    width: 12px;
+    height: 12px;
+
+    opacity: 0.5;
+}
+
+.dot-3 {
+    bottom: 100px;
+    left: 55px;
+
+    width: 6px;
+    height: 6px;
+
+    opacity: 0.6;
+}
+
+
+/* Старые декоративные элементы */
+
+.books,
+.book {
+    display: none !important;
+}
+
+.hero::before,
+.hero::after {
+    display: none !important;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+    padding: 35px 0 100px;
+}
+
+.features-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.feature {
+    padding: 26px 23px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 22px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(255, 138, 31, 0.20);
+
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 17px;
+
+    border-radius: 13px;
+
+    background: rgba(255, 138, 31, 0.10);
+
+    color: var(--orange);
+}
+
+.feature-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.feature h3 {
+    color: var(--blue);
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+.feature p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   ABOUT / SUBJECT GROUPS
+========================================= */
+
+.about {
+    padding: 100px 0;
+
+    background: var(--bg-soft);
+}
+
+.section-heading {
+    max-width: 720px;
+
+    margin-bottom: 45px;
+}
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 13px;
+
+    color: var(--orange);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+.section-heading h2 {
+    color: var(--blue);
+
+    font-size: clamp(32px, 4vw, 50px);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.04em;
+
+    font-weight: 800;
+}
+
+.section-heading p {
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   SUBJECT GROUP CARDS
+========================================= */
+
+.subjects {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.subject {
+    position: relative;
+
+    padding: 27px 29px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(7, 52, 90, 0.08);
+
+    border-radius: 23px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.subject:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(255, 138, 31, 0.20);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* маленькая оранжевая линия */
+
+.subject::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--orange);
+}
+
+
+.subject-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.subject-number {
+    color: rgba(7, 52, 90, 0.20);
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+.subject h3 {
+    color: var(--blue);
+
+    font-size: 20px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+.subject-description {
+    max-width: 600px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.subject-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+.subject-list span {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 31px;
+
+    padding: 5px 11px;
+
+    border-radius: 9px;
+
+    background: #f3f7fa;
+
+    color: var(--blue);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TELEGRAM SECTION
+========================================= */
+
+.telegram-section {
+    position: relative;
+
+    padding: 100px 0;
+
+    background: var(--blue);
+
+    overflow: hidden;
+}
+
+.telegram-section::before,
+.telegram-section::after {
+    display: none !important;
+}
+
+.telegram-heading {
+    max-width: 700px;
+
+    margin-bottom: 45px;
+}
+
+.telegram-heading .section-label {
+    color: #ffab5d;
+}
+
+.telegram-heading h2 {
+    color: white;
+
+    font-size: clamp(33px, 4vw, 50px);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.04em;
+
+    font-weight: 800;
+}
+
+.telegram-heading p {
+    margin-top: 18px;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   TELEGRAM CARDS
+========================================= */
+
+.telegram-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.telegram-card {
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 34px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-radius: 27px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.telegram-card:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.telegram-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -80px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 138, 31, 0.14);
+}
+
+.telegram-card-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.telegram-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 16px;
+
+    background: var(--orange);
+
+    color: white;
+}
+
+.telegram-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.telegram-card h3 {
+    color: white;
+
+    font-size: 22px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+.telegram-card p {
+    max-width: 450px;
+
+    margin-top: 11px;
+
+    color: rgba(255, 255, 255, 0.64);
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+.telegram-button {
+    position: relative;
+
+    z-index: 3;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    min-height: 48px;
+
+    padding: 0 20px;
+
+    margin-top: 28px;
+
+    border-radius: 13px;
+
+    background: white;
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.telegram-button:hover {
+    transform: translateY(-2px);
+
+    background: #f5f8fb;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 35px 0;
+
+    background: #052945;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer-inner {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.footer-logo {
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+.footer-logo span {
+    color: var(--orange);
+}
+
+.footer-copy {
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   RESPONSIVE — 1100
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr 0.8fr;
+
+        gap: 40px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 5vw, 60px);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE — 1000
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .hero-content {
+        max-width: 780px;
+    }
+
+    .hero-description {
+        max-width: 700px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE — 700
+========================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: min(100% - 30px, 600px);
+    }
+
+
+    /* HEADER */
+
+    .nav {
+        min-height: 82px;
+    }
+
+    .logo img {
+        width: 85px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .header-button {
+        min-height: 43px;
+
+        padding: 0 15px;
+
+        font-size: 11px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 125px 0 65px;
+    }
+
+    .hero-visual {
+        display: none !important;
+    }
+
+    .eyebrow {
+        margin-bottom: 18px;
+
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: clamp(37px, 11vw, 52px);
+
+        letter-spacing: -0.045em;
+    }
+
+    .hero-description {
+        margin-top: 21px;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        margin-top: 28px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+
+        min-height: 54px;
+    }
+
+
+    /* FEATURES */
+
+    .features {
+        padding: 15px 0 70px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .feature {
+        padding: 20px 16px;
+    }
+
+    .feature h3 {
+        font-size: 13px;
+    }
+
+    .feature p {
+        font-size: 11px;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        padding: 70px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+    }
+
+    .subjects {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .subject {
+        padding: 23px 23px;
+    }
+
+    .subject h3 {
+        font-size: 18px;
+    }
+
+    .subject-description {
+        font-size: 12px;
+    }
+
+    .subject-list {
+        margin-top: 14px;
+
+        gap: 6px;
+    }
+
+    .subject-list span {
+        font-size: 10px;
+
+        min-height: 29px;
+    }
+
+
+    /* TELEGRAM */
+
+    .telegram-section {
+        padding: 70px 0;
+    }
+
+    .telegram-heading {
+        margin-bottom: 32px;
+    }
+
+    .telegram-heading h2 {
+        font-size: 34px;
+    }
+
+    .telegram-heading p {
+        font-size: 14px;
+    }
+
+    .telegram-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .telegram-card {
+        min-height: 280px;
+
+        padding: 26px;
+    }
+
+    .telegram-card h3 {
+        font-size: 20px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 28px 0;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE — 390
+========================================= */
+
+@media (max-width: 390px) {
+
+    .nav {
+        min-height: 76px;
+    }
+
+    .logo img {
+        width: 78px;
+    }
+
+    .header-button {
+        padding: 0 12px;
+
+        font-size: 10px;
+    }
+
+    .hero {
+        padding-top: 115px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .feature-icon {
+        flex-shrink: 0;
+
+        margin-bottom: 0;
+    }
+}
